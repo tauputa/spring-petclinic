@@ -32,7 +32,7 @@ project {
 }
 
 object Build : BuildType({
-    name = "Build"
+    name = "Harriets Custom Build"
 
     vcs {
         root(DslContext.settingsRoot)
@@ -40,7 +40,7 @@ object Build : BuildType({
 
     steps {
         maven {
-            goals = "clean verify"
+            goals = "clean test"
             runnerArgs = "-Dmaven.test.failure.ignore=true"
             mavenVersion = bundled_3_6()
             param("org.jfrog.artifactory.selectedDeployableServer.defaultModuleVersionConfiguration", "GLOBAL")
