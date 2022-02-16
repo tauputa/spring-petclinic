@@ -40,7 +40,7 @@ object Build : BuildType({
 
     steps {
         maven {
-            goals = "clean test"
+            goals = "clean verify"
             runnerArgs = "-Dmaven.test.failure.ignore=true"
             mavenVersion = bundled_3_6()
             param("org.jfrog.artifactory.selectedDeployableServer.defaultModuleVersionConfiguration", "GLOBAL")
