@@ -45,6 +45,16 @@ object Build : BuildType({
             mavenVersion = bundled_3_6()
             param("org.jfrog.artifactory.selectedDeployableServer.defaultModuleVersionConfiguration", "GLOBAL")
         }
+        script {
+            name = "Custom Commandline"
+            scriptContent = """
+                #!/bin/bash
+                echo "Hello World"
+            """.trimIndent()
+            param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
+            param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
+            param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
+        }
     }
 
     triggers {
